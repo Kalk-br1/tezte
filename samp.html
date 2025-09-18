@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos SAMP - Astrox Hosting</title>
+    <meta name="description" content="Planos de hospedagem SAMP com alta performance e baixa latência.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__brand">
+                <i class="fas fa-server"></i>
+                <span>Astrox Hosting</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Início</a>
+                    </li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link nav__dropdown-toggle">
+                            Host Jogos <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav__dropdown-menu">
+                            <a href="mta.html" class="nav__dropdown-link">
+                                <i class="fas fa-car"></i>
+                                <div>
+                                    <span>MTA:SA</span>
+                                    <small>Host MTA:SA Ping BR</small>
+                                </div>
+                            </a>
+                            <a href="samp.html" class="nav__dropdown-link">
+                                <i class="fas fa-gamepad"></i>
+                                <div>
+                                    <span>SAMP</span>
+                                    <small>Baixa latência</small>
+                                </div>
+                            </a>
+                            <a href="minecraft.html" class="nav__dropdown-link">
+                                <i class="fas fa-cube"></i>
+                                <div>
+                                    <span>Minecraft</span>
+                                    <small>Diversão ilimitada</small>
+                                </div>
+                            </a>
+                            <a href="openmp.html" class="nav__dropdown-link">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <span>Open.MP</span>
+                                    <small>Comunidade ativa</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link nav__dropdown-toggle">
+                            Revendas <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav__dropdown-menu">
+                            <a href="revendas.html?category=mta-samp" class="nav__dropdown-link">
+                                <i class="fas fa-cube"></i>
+                                <div>
+                                    <span>MTA/SAMP</span>
+                                    <small>Painel TCAdmin</small>
+                                </div>
+                            </a>
+                            <a href="revendas.html?category=mta" class="nav__dropdown-link">
+                                <i class="fas fa-car"></i>
+                                <div>
+                                    <span>MTA</span>
+                                    <small>Painel TCAdmin</small>
+                                </div>
+                            </a>
+                            <a href="revendas.html?category=samp" class="nav__dropdown-link">
+                                <i class="fas fa-gamepad"></i>
+                                <div>
+                                    <span>SAMP</span>
+                                    <small>Painel TCAdmin</small>
+                                </div>
+                            </a>
+                            <a href="revendas.html?category=openmp" class="nav__dropdown-link">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <span>Open.MP</span>
+                                    <small>Painel TCAdmin</small>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contato" class="nav__link">Contato</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Actions -->
+                <div class="nav__actions nav__actions--mobile">
+                    <button class="nav__btn" onclick="openModal('loginModal')">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button class="nav__btn" onclick="openModal('cartModal')">
+                        <i class="fas fa-shopping-cart"></i> 
+                        Carrinho (<span id="cartCount">0</span>)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Actions -->
+            <div class="nav__actions nav__actions--desktop">
+                <button class="btn btn--outline btn--sm" onclick="openModal('loginModal')">
+                    <i class="fas fa-user"></i> Login
+                </button>
+                <button class="btn btn--primary btn--sm" onclick="openModal('cartModal')">
+                    <i class="fas fa-shopping-cart"></i> 
+                    Carrinho (<span id="cartCountDesktop">0</span>)
+                </button>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header__content">
+                <h1 class="page-header__title">
+                    <i class="fas fa-gamepad"></i>
+                    Planos SAMP
+                </h1>
+                <p class="page-header__description">
+                    Escolha o plano perfeito para seu servidor SAMP com recursos dedicados e performance garantida.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans">
+        <div class="container">
+            <div class="plans__grid plans__grid--four">
+                <div class="plan-card">
+                    <div class="plan-card__icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="plan-card__name">SAMP Basic</h3>
+                    <div class="plan-card__price">
+                        <span class="price">R$9,00</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-card__features">
+                        <li><i class="fas fa-users"></i> 50 Slots</li>
+                        <li><i class="fas fa-memory"></i> SAMP 0.3.7</li>
+                        <li><i class="fas fa-shield-alt"></i> Anti-DDoS</li>
+                        <li><i class="fas fa-database"></i> MySQL Incluído</li>
+                        <li><i class="fas fa-download"></i> Fast Download</li>
+                        <li><i class="fas fa-globe"></i> Ping BR</li>
+                        <li><i class="fas fa-cogs"></i> TCAdmin 2.0</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full" onclick="addToCart('samp-basic', 9.00)">
+                        Contratar Agora
+                    </button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-card__icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="plan-card__name">SAMP Standard</h3>
+                    <div class="plan-card__price">
+                        <span class="price">R$16,99</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-card__features">
+                        <li><i class="fas fa-users"></i> 100 Slots</li>
+                        <li><i class="fas fa-memory"></i> SAMP 0.3.7</li>
+                        <li><i class="fas fa-shield-alt"></i> Anti-DDoS</li>
+                        <li><i class="fas fa-database"></i> MySQL Incluído</li>
+                        <li><i class="fas fa-download"></i> Fast Download</li>
+                        <li><i class="fas fa-globe"></i> Ping BR</li>
+                        <li><i class="fas fa-cogs"></i> TCAdmin 2.0</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full" onclick="addToCart('samp-standard', 16.99)">
+                        Contratar Agora
+                    </button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-card__icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="plan-card__name">SAMP Professional</h3>
+                    <div class="plan-card__price">
+                        <span class="price">R$23,00</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-card__features">
+                        <li><i class="fas fa-users"></i> 200 Slots</li>
+                        <li><i class="fas fa-memory"></i> SAMP 0.3.7</li>
+                        <li><i class="fas fa-shield-alt"></i> Anti-DDoS</li>
+                        <li><i class="fas fa-database"></i> MySQL Incluído</li>
+                        <li><i class="fas fa-download"></i> Fast Download</li>
+                        <li><i class="fas fa-globe"></i> Ping BR</li>
+                        <li><i class="fas fa-cogs"></i> TCAdmin 2.0</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full" onclick="addToCart('samp-professional', 23.00)">
+                        Contratar Agora
+                    </button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-card__icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="plan-card__name">SAMP Business</h3>
+                    <div class="plan-card__price">
+                        <span class="price">R$38,00</span>
+                        <span class="period">/mês</span>
+                    </div>
+                    <ul class="plan-card__features">
+                        <li><i class="fas fa-users"></i> 500 Slots</li>
+                        <li><i class="fas fa-memory"></i> SAMP 0.3.7</li>
+                        <li><i class="fas fa-shield-alt"></i> Anti-DDoS</li>
+                        <li><i class="fas fa-database"></i> MySQL Incluído</li>
+                        <li><i class="fas fa-download"></i> Fast Download</li>
+                        <li><i class="fas fa-globe"></i> Ping BR</li>
+                        <li><i class="fas fa-cogs"></i> TCAdmin 2.0</li>
+                    </ul>
+                    <button class="btn btn--primary btn--full" onclick="addToCart('samp-business', 38.00)">
+                        Contratar Agora
+                    </button>
+                </div>
+            </div>
+            
+            <div class="plans__note">
+                <p>* Todos os planos incluem painel de controle personalizado e suporte técnico.</p>
+                <p>* Upgrade/downgrade disponível a qualquer momento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Por que escolher nossa hospedagem SAMP?</h2>
+                <p class="section__subtitle">Vantagens exclusivas que fazem a diferença</p>
+            </div>
+            
+            <div class="why-choose__grid">
+                <div class="why-choose__item">
+                    <div class="why-choose__icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Baixa Latência</h3>
+                    <p>Servidores otimizados para SAMP com ping brasileiro, garantindo a melhor experiência de jogo para seus players.</p>
+                </div>
+                
+                <div class="why-choose__item">
+                    <div class="why-choose__icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Proteção Anti-Lag</h3>
+                    <p>Sistema avançado de proteção contra lag e travamentos, mantendo seu servidor SAMP sempre estável.</p>
+                </div>
+                
+                <div class="why-choose__item">
+                    <div class="why-choose__icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Fast Download</h3>
+                    <p>Sistema de download rápido para mods e arquivos, permitindo que players entrem no servidor mais rapidamente.</p>
+                </div>
+                
+                <div class="why-choose__item">
+                    <div class="why-choose__icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade Ativa</h3>
+                    <p>Suporte especializado em SAMP com conhecimento profundo do jogo e suas modificações mais populares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refund Policy Section -->
+    <section class="refund-policy">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Política de Reembolso</h2>
+                <p class="section__subtitle">Sua satisfação é nossa prioridade</p>
+            </div>
+            
+            <div class="refund-policy__content">
+                <div class="refund-policy__item">
+                    <div class="refund-policy__icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>7 Dias de Garantia</h3>
+                    <p>Oferecemos reembolso total em até 7 dias após a contratação, sem perguntas ou taxas adicionais.</p>
+                </div>
+                
+                <div class="refund-policy__item">
+                    <div class="refund-policy__icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Processamento Rápido</h3>
+                    <p>Reembolsos processados em até 48 horas úteis direto na sua conta bancária ou método de pagamento original.</p>
+                </div>
+                
+                <div class="refund-policy__item">
+                    <div class="refund-policy__icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Sem Complicações</h3>
+                    <p>Processo simples via ticket ou WhatsApp. Não fazemos perguntas desnecessárias sobre o motivo do cancelamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosting vs Reseller Comparison -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Hospedagem vs Revenda</h2>
+                <p class="section__subtitle">Entenda as diferenças e escolha a melhor opção</p>
+            </div>
+            
+            <div class="comparison__grid">
+                <div class="comparison__card">
+                    <div class="comparison__header">
+                        <div class="comparison__icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Hospedagem Tradicional</h3>
+                        <p class="comparison__subtitle">Para jogadores e comunidades</p>
+                    </div>
+                    
+                    <div class="comparison__content">
+                        <h4>Vantagens:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Preço mais baixo</li>
+                            <li><i class="fas fa-check"></i> Fácil de usar</li>
+                            <li><i class="fas fa-check"></i> Suporte técnico incluído</li>
+                            <li><i class="fas fa-check"></i> Backup automático</li>
+                            <li><i class="fas fa-check"></i> Painel TCAdmin</li>
+                        </ul>
+                        
+                        <h4>Ideal para:</h4>
+                        <ul>
+                            <li>Comunidades pequenas e médias</li>
+                            <li>Jogadores iniciantes</li>
+                            <li>Quem quer simplicidade</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="comparison__card comparison__card--featured">
+                    <div class="comparison__header">
+                        <div class="comparison__icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Plano Revenda</h3>
+                        <p class="comparison__subtitle">Para empreendedores</p>
+                    </div>
+                    
+                    <div class="comparison__content">
+                        <h4>Vantagens:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Crie sua própria empresa</li>
+                            <li><i class="fas fa-check"></i> Margem de lucro alta</li>
+                            <li><i class="fas fa-check"></i> Painel WHM/cPanel</li>
+                            <li><i class="fas fa-check"></i> Suporte white-label</li>
+                            <li><i class="fas fa-check"></i> Recursos ilimitados</li>
+                        </ul>
+                        
+                        <h4>Ideal para:</h4>
+                        <ul>
+                            <li>Empreendedores digitais</li>
+                            <li>Quem quer ter renda extra</li>
+                            <li>Comunidades grandes</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="revendas.html" class="btn btn--primary btn--full">Ver Planos Revenda</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Astrox Hosting. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="cartModal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Carrinho de Compras</h3>
+                <button class="modal__close" onclick="closeModal('cartModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div id="cartItems"></div>
+                <div class="cart__total">
+                    <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--primary btn--full" onclick="checkout()">
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Login</h3>
+                <button class="modal__close" onclick="closeModal('loginModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal__body">
+                <form class="form">
+                    <div class="form__group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Seu email">
+                    </div>
+                    <div class="form__group">
+                        <label>Senha</label>
+                        <input type="password" placeholder="Sua senha">
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">
+                        Entrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
