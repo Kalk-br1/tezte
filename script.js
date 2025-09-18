@@ -2,6 +2,20 @@
 let cart = [];
 let isMenuOpen = false;
 
+// Theme Management
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
 // Reseller why choose content
 const resellerWhyChoose = {
     'mta-samp': [
@@ -484,23 +498,36 @@ const planConfigs = {
     'openmp-professional': 'Open.MP Professional - 200 Slots',
     'openmp-business': 'Open.MP Business - 500 Slots',
     
-    // Reseller Plans
-    'revenda-mta-samp-starter': 'Revenda MTA/SAMP Starter',
-    'revenda-mta-samp-pro': 'Revenda MTA/SAMP Pro',
-    'revenda-openmp-starter': 'Revenda OpenMP Starter',
-    'revenda-openmp-pro': 'Revenda OpenMP Pro',
-    'revenda-mta-starter': 'Revenda MTA Starter',
-    'revenda-mta-pro': 'Revenda MTA Pro',
-    'revenda-samp-starter': 'Revenda SAMP Starter',
-    'revenda-samp-pro': 'Revenda SAMP Pro',
-    'revenda-vps-starter': 'Revenda VPS Starter',
-    'revenda-vps-pro': 'Revenda VPS Pro',
-    'revenda-whm-starter': 'Revenda WHM Starter',
-    'revenda-whm-pro': 'Revenda WHM Pro'
+    // Reseller Plans - MTA/SAMP
+    'revenda-mta-samp-1k': 'Revenda 1k',
+    'revenda-mta-samp-3k': 'Revenda 3k',
+    'revenda-mta-samp-4k': 'Revenda 4k',
+    'revenda-mta-samp-5k': 'Revenda 5k',
+    
+    // Reseller Plans - MTA
+    'revenda-mta-1k': 'Revenda MTA 1k',
+    'revenda-mta-2k': 'Revenda MTA 2k',
+    'revenda-mta-3k': 'Revenda MTA 3k',
+    'revenda-mta-5k': 'Revenda MTA 5k',
+    
+    // Reseller Plans - SAMP
+    'revenda-samp-1k': 'Revenda SAMP 1k',
+    'revenda-samp-2k': 'Revenda SAMP 2k',
+    'revenda-samp-3k': 'Revenda SAMP 3k',
+    'revenda-samp-5k': 'Revenda SAMP 5k',
+    
+    // Reseller Plans - OpenMP
+    'revenda-openmp-1k': 'Rev OpenMP 1k',
+    'revenda-openmp-2k': 'Rev OpenMP 2k',
+    'revenda-openmp-3k': 'Rev OpenMP 3k',
+    'revenda-openmp-5k': 'Rev OpenMP 5k'
 };
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme first
+    initTheme();
+    
     initMobileMenu();
     initDropdowns();
     initModals();
@@ -543,6 +570,9 @@ function toggleMobileMenu() {
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme first
+    initTheme();
+    
     updateCartDisplay();
     
     // Load reseller plans if on reseller page
