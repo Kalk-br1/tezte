@@ -695,6 +695,7 @@ function removeFromCart(itemId) {
 function updateCartDisplay() {
     const cartCount = document.getElementById('cartCount');
     const cartCountDesktop = document.getElementById('cartCountDesktop');
+    const cartBadge = document.getElementById('cartBadge');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
     
@@ -706,19 +707,31 @@ function updateCartDisplay() {
     if (cartCountDesktop) {
         cartCountDesktop.textContent = count;
     }
+    if (cartBadge) {
+        cartBadge.textContent = count;
+        cartBadge.style.display = count > 0 ? 'flex' : 'none';
+    }
     
     // Update cart items
     if (cartItems) {
         if (cart.length === 0) {
-            cartItems.innerHTML = '<p class="text-center">Seu carrinho está vazio</p>';
+            cartItems.innerHTML = '<p class="text-center text-muted">Seu carrinho está vazio</p>';
         } else {
             cartItems.innerHTML = cart.map(item => `
                 <div class="cart-item">
                     <div class="cart-item__info">
                         <h4>${item.name}</h4>
-                        <p>R$ ${item.price.toFixed(2).replace('.', ',')}/mês</p>
+                        <div class="cart-item__details">
+                            <p class="cart-item__price">R$ ${item.price.toFixed(2).replace('.', ',')}/mês</p>
+                            <small class="cart-item__id">ID: ${item.planId}</small>
+                        </div>
+                        <div class="cart-item__features">
+                            <small>✓ Painel TCAdmin</small>
+                            <small>✓ Suporte 24/7</small>
+                            <small>✓ Anti-DDoS</small>
+                        </div>
                     </div>
-                    <button class="btn btn--sm btn--outline" onclick="removeFromCart(${item.id})">
+                    <button class="btn btn--sm btn--outline" onclick="removeFromCart(${item.id})" title="Remover item">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>

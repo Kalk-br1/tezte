@@ -1355,6 +1355,125 @@ h4 { font-size: var(--font-size-xl); }
     display: block;
 }
 
+/* Mobile Header Actions */
+.nav__mobile-header {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav__icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__icon-btn:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__icon-btn .fa-sun {
+    display: block;
+}
+
+.nav__icon-btn .fa-moon {
+    display: none;
+}
+
+[data-theme="dark"] .nav__icon-btn .fa-sun {
+    display: none;
+}
+
+[data-theme="dark"] .nav__icon-btn .fa-moon {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .nav__mobile-header {
+        display: flex;
+    }
+    
+    .nav__toggle {
+        margin: 0;
+    }
+}
+
+/* Cart Item Styles */
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background: var(--bg-light);
+}
+
+.cart-item__info {
+    flex: 1;
+}
+
+.cart-item__info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+}
+
+.cart-item__details {
+    margin-bottom: 0.5rem;
+}
+
+.cart-item__price {
+    margin: 0;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+}
+
+.cart-item__id {
+    color: var(--text-light);
+    font-size: var(--font-size-xs);
+}
+
+.cart-item__features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.cart-item__features small {
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+}
+
 .footer p {
     margin: 0;
     font-size: var(--font-size-sm);
