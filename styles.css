@@ -1319,6 +1319,26 @@ h4 { font-size: var(--font-size-xl); }
     position: absolute;
 }
 
+.nav__btn i {
+    position: relative;
+}
+
+.nav__btn .fa-sun {
+    display: block;
+}
+
+.nav__btn .fa-moon {
+    display: none;
+}
+
+[data-theme="dark"] .nav__btn .fa-sun {
+    display: none;
+}
+
+[data-theme="dark"] .nav__btn .fa-moon {
+    display: block;
+}
+
 .theme-toggle .fa-sun {
     display: block;
 }
