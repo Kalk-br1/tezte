@@ -109,6 +109,9 @@
                     <button class="nav__btn" onclick="openModal('loginModal')">
                         <i class="fas fa-user"></i> Login
                     </button>
+                    <button class="nav__btn" onclick="openModal('registerModal')">
+                        <i class="fas fa-user-plus"></i> Registrar
+                    </button>
                 </div>
             </div>
 
@@ -120,6 +123,9 @@
                 </button>
                 <button class="btn btn--outline btn--sm" onclick="openModal('loginModal')">
                     <i class="fas fa-user"></i> Login
+                </button>
+                <button class="btn btn--secondary btn--sm" onclick="openModal('registerModal')">
+                    <i class="fas fa-user-plus"></i> Registrar
                 </button>
                 <button class="btn btn--primary btn--sm" onclick="openModal('cartModal')">
                     <i class="fas fa-shopping-cart"></i> 
@@ -464,6 +470,91 @@
                     <button type="submit" class="btn btn--primary btn--full">
                         Entrar
                     </button>
+                    <p class="text-center" style="margin-top: 1rem;">
+                        Não tem conta? <a href="#" onclick="closeModal('loginModal'); openModal('registerModal');" style="color: var(--primary-color);">Registre-se aqui</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3>Cadastro</h3>
+                <button class="modal__close" onclick="closeModal('registerModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal__body">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; text-align: center;">
+                    Preencha todos os campos.
+                </p>
+                <form class="form" id="registerForm">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label>CPF</label>
+                            <input type="text" placeholder="000.000.000-00" required>
+                        </div>
+                        <div class="form__group">
+                            <label>Data de Nascimento</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label>Nome</label>
+                            <input type="text" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form__group">
+                            <label>Sobrenome</label>
+                            <input type="text" placeholder="Seu sobrenome" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label>E-mail</label>
+                            <input type="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form__group">
+                            <label>WhatsApp (com DDD)</label>
+                            <input type="tel" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label>Senha</label>
+                            <div class="password-input">
+                                <input type="password" placeholder="••••••••" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label>Confirmar Senha</label>
+                            <div class="password-input">
+                                <input type="password" placeholder="••••••••" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__row" style="margin-top: 1rem;">
+                        <button type="submit" class="btn btn--primary" style="width: 100%;">
+                            Cadastrar
+                        </button>
+                    </div>
+                    
+                    <p class="text-center" style="margin-top: 1rem;">
+                        Já tem conta? <a href="#" onclick="closeModal('registerModal'); openModal('loginModal');" style="color: var(--primary-color);">Faça login aqui</a>
+                    </p>
                 </form>
             </div>
         </div>

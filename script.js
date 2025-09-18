@@ -568,6 +568,22 @@ function toggleMobileMenu() {
     }
 }
 
+// Password toggle functionality
+function togglePassword(button) {
+    const input = button.parentElement.querySelector('input');
+    const icon = button.querySelector('i');
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme first
@@ -609,6 +625,28 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+    
+    // Register form validation
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const passwords = this.querySelectorAll('input[type="password"]');
+            if (passwords[0].value !== passwords[1].value) {
+                showNotification('As senhas não coincidem!', 'error');
+                return;
+            }
+            
+            if (passwords[0].value.length < 6) {
+                showNotification('A senha deve ter pelo menos 6 caracteres!', 'error');
+                return;
+            }
+            
+            showNotification('Cadastro realizado com sucesso!', 'success');
+            closeModal('registerModal');
+        });
+    }
 });
 
 // Modal functionality
@@ -651,11 +689,15 @@ function closeModal(modalId) {
 }
 
 function closeAllModals() {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
+    document.querySelectorAll('.modal').forEach(modal => {
         modal.classList.remove('modal--active');
     });
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'auto';
+}
+
+function switchModal(fromModalId, toModalId) {
+    closeModal(fromModalId);
+    openModal(toModalId);
 }
 
 // Cart functionality
